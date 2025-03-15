@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const BusinessDashboard = () => {
     const navigate = useNavigate()
     const back = () => {
-        navigate('/')
+        navigate('/home')
     }
       const [activeTab, setActiveTab] = useState<'dashboard' | 'events' | 'jobs' | 'products'>('dashboard');
     return (
