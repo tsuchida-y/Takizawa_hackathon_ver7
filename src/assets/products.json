@@ -1,0 +1,29 @@
+[
+    {
+        "name": "test",
+        "price": "2000",
+        "picture": {
+            "path": "https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=300",
+            "alt": "picture"
+        },
+        "stock": 5
+    },
+    {
+        "name": "test1",
+        "price": "20001",
+        "picture": {
+            "path": "https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=300",
+            "alt": "picture"
+        },
+        "stock": 3
+    },
+    {
+        "name": "test3",
+        "price": "20003",
+        "picture": {
+            "path": "https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=300",
+            "alt": "picture"
+        },
+        "stock": 1
+    }
+]
