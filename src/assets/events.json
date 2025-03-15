@@ -4,6 +4,10 @@
             "month": 3,
             "day": 11
         },
+        "time": {
+            "hour": 10,
+            "minute": 0
+        },
         "title": "test",
         "place": "滝沢市",
         "text": ["これはテストです","これもテストです。"] 
@@ -13,6 +17,10 @@
             "month": 3,
             "day": 12
         },
+        "time": {
+            "hour": 10,
+            "minute": 0
+        },
         "title": "てすと",
         "place": "盛岡市",
         "text": ["これはテストです","これもテストです。"] 
@@ -20,6 +28,10 @@
         "date": {
             "month": 3,
             "day": 13
+        },
+        "time": {
+            "hour": 10,
+            "minute": 0
         },
         "title": "test",
         "place": "滝沢市",

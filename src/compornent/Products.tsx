@@ -1,5 +1,6 @@
 import { PlusCircle, Search } from 'lucide-react';
 import React, { useState } from 'react';
+import products from "../assets/products.json";
 
 const Products = () => {
 
@@ -34,18 +35,18 @@ const Products = () => {
                         </div>
         
                         <div className="grid grid-cols-4 gap-6">
-                          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                            <div key={i} className="bg-white rounded-xl shadow-sm overflow-hidden">
+                          {products.map((product, index) => (
+                            <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden">
                               <img
-                                src="https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=300"
+                                src={product.picture.path}
                                 alt="商品画像"
                                 className="w-full h-40 object-cover"
                               />
                               <div className="p-4">
-                                <h3 className="font-medium">採れたて野菜セット</h3>
-                                <p className="text-sm text-gray-500 mb-2">在庫: 20セット</p>
+                                <h3 className="font-medium">{product.name}</h3>
+                                <p className="text-sm text-gray-500 mb-2">在庫: {product.stock}</p>
                                 <div className="flex items-center justify-between">
-                                  <span className="font-medium">¥2,980</span>
+                                  <span className="font-medium">¥{product.price}</span>
                                   <button className="text-blue-600 hover:text-blue-800">編集</button>
                                 </div>
                               </div>

@@ -1,5 +1,6 @@
 import { PlusCircle, Search } from 'lucide-react';
 import React, { useState } from 'react';
+import jobs from "../assets/jobs.json"
 
 const Jobs = () => {
 
@@ -44,14 +45,16 @@ const Jobs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {[1, 2, 3, 4, 5].map((i) => (
-                        <tr key={i} className="border-b last:border-0">
+                        {jobs.slice(0,3).map((job, index) => (
+                            <tr key={index} className="border-b last:border-0">
                             <td className="p-4">
-                            <div className="font-medium">いちご収穫スタッフ</div>
-                            <div className="text-sm text-gray-500">短期アルバイト</div>
+                            <div className="font-medium">{job.title}</div>
+                                {job.genre.map((data, index) => (
+                                <div key={index} className="text-sm text-gray-500">{data}</div>
+                            ))}
                             </td>
-                            <td className="p-4">時給1,200円〜</td>
-                            <td className="p-4">3件</td>
+                            <td className="p-4">{job.salary}</td>
+                            <td className="p-4">{job.number}</td>
                             <td className="p-4">
                             <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
                                 募集中

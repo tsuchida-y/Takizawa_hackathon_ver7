@@ -1,5 +1,6 @@
 import { PlusCircle, Search } from 'lucide-react';
 import React, { useState } from 'react';
+import events from "../assets/events.json";
 
 const Events = () => {
 
@@ -44,13 +45,14 @@ const Events = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <tr key={i} className="border-b last:border-0">
+                    {events.slice(0, 3).map((event, index) => (
+                      <tr key={index} className="border-b last:border-0">
                         <td className="p-4">
-                          <div className="font-medium">春の収穫体験</div>
-                          <div className="text-sm text-gray-500">滝沢市農業センター</div>
+                          <div className="font-medium">{event.title}</div>
+                          <div className="text-sm text-gray-500">{event.text}</div>
                         </td>
-                        <td className="p-4">2024/3/1{i} 10:00〜</td>
+                        <td className="p-4">
+                          {event.date.month}/{event.date.day} {event.time.hour}:{event.time.minute < 10 ? '0' + event.time.minute : event.time.minute}</td>
                         <td className="p-4">15/20名</td>
                         <td className="p-4">
                           <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
