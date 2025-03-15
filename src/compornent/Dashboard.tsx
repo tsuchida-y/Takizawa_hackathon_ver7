@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Dashboard = () => {
 
-      const [activeTab, setActiveTab] = useState<'dashboard' | 'events' | 'jobs' | 'products'>('dashboard');
+      const [activeTab] = useState<'dashboard' | 'events' | 'jobs' | 'products'>('dashboard');
     return(
         <div className="flex-1 overflow-auto">
             {/* Header */}

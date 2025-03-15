@@ -1,8 +1,5 @@
 import { Search, Calendar, Briefcase, ShoppingBag, ChevronRight, Leaf} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import events from "../assets/events.json";
-import products from "../assets/products.json";
-import jobs from "../assets/jobs.json"
 
 function App() {
   const navigate = useNavigate()
@@ -50,7 +47,7 @@ function App() {
         {/* Hero Section */}
         <div className="relative rounded-2xl overflow-hidden mb-12">
           <img
-            src="https://cdn.projectdesign.jp/uploads/2024/02/28/idfaZUZGqZ2HMRMRefdk21tmeozJ71WRPb4hwPti.jpg"
+            src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1920"
             alt="農園の風景"
             className="w-full h-[400px] object-cover"
           />
@@ -81,14 +78,14 @@ function App() {
               <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {events.slice(0, 3).map((event, index) => (
-                <div key={index} className="flex items-start space-x-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex items-start space-x-4">
                   <div className="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">
-                    {event.date.month}/{event.date.day}
+                    3/1{i}
                   </div>
                   <div>
-                    <h3 className="font-medium">{event.title}</h3>
-                    <p className="text-sm text-gray-600">{event.place}</p>
+                    <h3 className="font-medium">春の収穫体験</h3>
+                    <p className="text-sm text-gray-600">滝沢市農業センター</p>
                   </div>
                 </div>
               ))}
@@ -105,11 +102,11 @@ function App() {
               <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {jobs.slice(0,3).map((job, index) => (
-                <div key={index} className="border-l-4 border-green-500 pl-4">
-                  <h3 className="font-medium">{job.title}</h3>
-                  <p className="text-sm text-gray-600">{job.salary}</p>
-                  <p className="text-sm text-gray-500">{job.place}</p>
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="border-l-4 border-green-500 pl-4">
+                  <h3 className="font-medium">いちご収穫スタッフ</h3>
+                  <p className="text-sm text-gray-600">時給1,200円〜</p>
+                  <p className="text-sm text-gray-500">滝沢いちご農園</p>
                 </div>
               ))}
             </div>
@@ -125,20 +122,40 @@ function App() {
               <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {products.slice(0, 3).map((product, index) => (
-                <div key={index} className="group cursor-pointer">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="group cursor-pointer">
                   <img
-                    src={product.picture.path}
-                    alt={product.picture.alt}
+                    src={`https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=300`}
+                    alt="農産物"
                     className="w-full h-24 object-cover rounded-lg mb-2"
                   />
                   <h3 className="text-sm font-medium group-hover:text-green-600">
-                    {product.name}
+                    採れたて野菜セット
                   </h3>
-                  <p className="text-sm text-gray-600">¥{product.price}</p>
+                  <p className="text-sm text-gray-600">¥2,980</p>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* News Section */}
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-12">
+          <h2 className="text-xl font-semibold mb-4">地域の農業ニュース</h2>
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex items-start space-x-4 pb-4 border-b last:border-0">
+                <div className="text-sm text-gray-500">2024.3.{i}</div>
+                <div>
+                  <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mb-1">
+                    ニュース
+                  </span>
+                  <h3 className="font-medium hover:text-green-600 cursor-pointer">
+                    滝沢市、新規就農支援制度を拡充。年間最大150万円の助成金を創設
+                  </h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </main>

@@ -5,12 +5,16 @@ import BusinessDashboard from './pages/BusinessDashboard.tsx';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
+import CreateEvent from './compornent/CreateEvent.tsx';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
     <Routes>
       <Route path="/home" element={<App />} />
       <Route path="/businessdashboard" element={<BusinessDashboard />} />
+      <Route path="/create-event" element={<CreateEvent />} />
     </Routes>
     </BrowserRouter>
   </StrictMode>

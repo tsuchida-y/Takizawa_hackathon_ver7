@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Calendar, Briefcase, ShoppingBag, ChevronRight, Leaf, LayoutDashboard, Users, Bell, Settings, LogOut, PlusCircle } from 'lucide-react';
+import { Calendar, Briefcase, ShoppingBag, Leaf, LayoutDashboard, Users, Bell, Settings, LogOut, } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Dashboard from '../compornent/Dashboard';
 import Events from '../compornent/Events';
@@ -109,8 +109,9 @@ const BusinessDashboard = () => {
             {activeTab === 'events' && <Events></Events>}
 
             {activeTab === 'jobs' && <Jobs></Jobs>}
-            
+
             {activeTab === 'products' && <Products></Products>}
+
           </div>
         </div>
     );
