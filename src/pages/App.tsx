@@ -40,7 +40,10 @@ function App() {
         {/* Category Sections */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Events */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div 
+            className="bg-white rounded-xl shadow-sm p-6 cursor-pointer"
+            onClick={() => navigate('/eventpage')}
+          >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <Calendar className="h-6 w-6 text-green-600" />
@@ -64,7 +67,10 @@ function App() {
           </div>
 
           {/* Jobs */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div 
+            className="bg-white rounded-xl shadow-sm p-6 cursor-pointer"
+            onClick={() => navigate('/jobpage')}
+          >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <Briefcase className="h-6 w-6 text-green-600" />
@@ -84,7 +90,10 @@ function App() {
           </div>
 
           {/* Shop */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div 
+            className="bg-white rounded-xl shadow-sm p-6 cursor-pointer"
+            onClick={() => navigate('/shop')}
+          > 
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <ShoppingBag className="h-6 w-6 text-green-600" />
@@ -119,8 +128,8 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Leaf className="h-6 w-6 text-green-600" />
-                <span className="text-xl font-bold text-gray-800">農コミュ</span>
+              <img src="/icon.png" className="h-6 w-6 text-green-600" />
+                <span className="text-xl font-bold text-gray-800">農助</span>
               </div>
               <p className="text-sm text-gray-600">
                 地域の農業をつなぎ、活性化するプラットフォーム
@@ -152,7 +161,7 @@ function App() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t text-center text-sm text-gray-600">
-            © 2024 農コミュ All rights reserved.
+            © 2025 農助 All rights reserved.
           </div>
         </div>
       </footer>
