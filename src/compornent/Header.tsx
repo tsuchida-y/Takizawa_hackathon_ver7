@@ -24,16 +24,16 @@ function App() {
               <span className="text-2xl font-bold text-gray-800">農助</span>
             </button>
             <div className="flex-1 max-w-2xl mx-8">
-              <div className="relative">
+              {/* <div className="hidden md:relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                 <input
                   type="text"
                   placeholder="キーワード、場所、作物で検索"
                   className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
-              </div>
+              </div> */}
             </div>
-            <nav className="hidden md:flex space-x-6">
+            <nav className="md:flex space-x-6">
               <button
                 onClick={navigatebusinessdashuboard}
                 className="text-gray-600 hover:text-green-600"
