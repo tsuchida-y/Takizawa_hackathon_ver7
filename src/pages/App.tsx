@@ -90,7 +90,9 @@ function App() {
                 <ShoppingBag className="h-6 w-6 text-green-600" />
                 <h2 className="text-xl font-semibold">ショップ</h2>
               </div>
-              <ChevronRight className="h-5 w-5 text-gray-400" />
+              <ChevronRight className="h-5 w-5 text-gray-400 cursor-pointer"
+              onClick={() => navigate('/shop')}
+              />
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[1, 2, 3, 4].map((i) => (
