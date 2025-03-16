@@ -7,6 +7,7 @@ import './index.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import CreateEvent from './compornent/CreateEvent.tsx';
 import CreateJob from './compornent/CreateJobs.tsx';
+import CreateProduct from './compornent/CreateProducts.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')!).render(
 
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/create-job" element={<CreateJob />} />
+      <Route path="/create-product" element={<CreateProduct />} />
     </Routes>
     </BrowserRouter>
   </StrictMode>
