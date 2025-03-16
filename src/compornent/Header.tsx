@@ -1,4 +1,4 @@
-import { Search, Calendar, Briefcase, ShoppingBag, ChevronRight, Leaf} from 'lucide-react';
+import { Search, Calendar, Briefcase, ShoppingBag, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <button onClick={Home} className="flex items-center space-x-2">
-              <Leaf className="h-8 w-8 text-green-600" />
+              <img src="/icon.png" className="h-8 w-8 text-green-600" />
               <span className="text-2xl font-bold text-gray-800">農助</span>
             </button>
             <div className="flex-1 max-w-2xl mx-8">
