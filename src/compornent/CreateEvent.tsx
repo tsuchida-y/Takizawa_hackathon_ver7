@@ -7,21 +7,21 @@ const CreateEvent = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [state, setState] = useState('');
   const [people, setPeople] = useState('');
   const [place, setPlace] = useState('');
-  const [description, setDescription] = useState('');
+  const [text, setText] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
         await addDoc(collection(db, 'event_items'), {
           title,
-          date,
-          time,
-          people,
+          date: new Date(date),
+          state,
+          people: Number(people),
           place,
-          description
+          text
         });
         console.log('イベントが作成されました');
         navigate('/businessdashboard'); // イベント一覧ページに戻る
@@ -55,11 +55,11 @@ const CreateEvent = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">開催時間</label>
+          <label className="block text-gray-700">ステータス</label>
           <input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+            type="text"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           />
@@ -67,7 +67,7 @@ const CreateEvent = () => {
         <div className="mb-4">
           <label className="block text-gray-700">募集人数</label>
           <input
-            type="people"
+            type="number"
             value={people}
             onChange={(e) => setPeople(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -87,8 +87,8 @@ const CreateEvent = () => {
         <div className="mb-4">
           <label className="block text-gray-700">説明</label>
           <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           />

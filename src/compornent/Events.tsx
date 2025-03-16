@@ -98,7 +98,7 @@ const Events = () => {
                         <div className="text-sm text-gray-500">{event.text}</div>
                       </td>
                       <td className="p-4">
-                      {event.date.toLocaleDateString('ja-JP', { month: '2-digit', day: '2-digit' }).replace('/', '月').replace('/', '日').concat('日')} {event.date.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' })}
+                      {event.date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace('/', '年').replace('/', '月').concat('日')}
                       </td>
                       <td className="p-4">{event.place}</td>
                       <td className="p-4">{event.people}</td>
