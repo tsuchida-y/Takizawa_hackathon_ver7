@@ -18,7 +18,7 @@ function App() {
         {/* Hero Section */}
         <div className="relative rounded-2xl overflow-hidden mb-12">
           <img
-            src="https://cdn.projectdesign.jp/uploads/2024/02/28/idfaZUZGqZ2HMRMRefdk21tmeozJ71WRPb4hwPti.jpg"
+            src="/img_8673.jpg"
             alt="農園の風景"
             className="w-full h-[400px] object-cover"
           />
