@@ -1,10 +1,51 @@
 import { PlusCircle, Search } from 'lucide-react';
-import React, { useState } from 'react';
-import jobs from "../assets/jobs.json"
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { collection, DocumentData, getDocs } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
+
+interface Job {
+
+    people: number;
+    title: string;
+    state: string;
+    salary: string;
+  }
+
 
 const Jobs = () => {
+    const [jobs, setJobs] = useState<Job[]>([]);
+    const [activeTab] = useState<'jobs'>('jobs');
+    const navigate = useNavigate();
 
-      const [activeTab] = useState<'jobs'>('jobs');
+    const handleCreateJob = () => {
+        navigate('/create-job');
+      };
+    
+      useEffect(() => {
+        const fetchEvents = async () => {
+          try {
+          const querySnapshot = await getDocs(collection(db, 'jobs_items'));
+          const jobsData = querySnapshot.docs.map(doc => {
+            const data = doc.data() as DocumentData;
+            console.log(data); // デバッグ用にデータをコンソールに出力
+            return {
+                people: data.people,
+                title: data.title,
+                state: data.state,
+                salary: data.salary,
+            } as Job;
+          });
+          console.log(jobsData); // デバッグ用に変換後のデータをコンソールに出力
+          setJobs(jobsData);
+        } catch (error) {
+          console.error("Error fetching events: ", error);
+        }
+        };
+    
+        fetchEvents();
+      }, []);
+
     return(
         <div className="flex-1 overflow-auto">
 
@@ -27,7 +68,9 @@ const Jobs = () => {
                         <option>募集終了</option>
                     </select>
                     </div>
-                    <button className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    <button 
+                    onClick={handleCreateJob}
+                    className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
                     <PlusCircle className="h-5 w-5" />
                     <span>新規求人作成</span>
                     </button>
@@ -45,26 +88,23 @@ const Jobs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {jobs.slice(0,3).map((job, index) => (
-                            <tr key={index} className="border-b last:border-0">
-                            <td className="p-4">
-                            <div className="font-medium">{job.title}</div>
-                                {job.genre.map((data, index) => (
-                                <div key={index} className="text-sm text-gray-500">{data}</div>
-                            ))}
-                            </td>
-                            <td className="p-4">{job.salary}</td>
-                            <td className="p-4">{job.number}</td>
-                            <td className="p-4">
-                            <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                                募集中
-                            </span>
-                            </td>
-                            <td className="p-4">
-                            <button className="text-blue-600 hover:text-blue-800">編集</button>
-                            </td>
-                        </tr>
-                        ))}
+                    {jobs.map((job, index) => (
+                    <tr key={index} className="border-b last:border-0">
+                      <td className="p-4">
+                        <div className="font-medium">{job.title}</div>
+                      </td>
+                      <td className="p-4">時給{job.salary}円</td>
+                      <td className="p-4">{job.people}</td>
+                      <td className="p-4">
+                        <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                        {job.state}
+                        </span>
+                      </td>
+                      <td className="p-4">
+                        <button className="text-blue-600 hover:text-blue-800">編集</button>
+                      </td>
+                    </tr>
+                  ))}
                     </tbody>
                     </table>
                 </div>
