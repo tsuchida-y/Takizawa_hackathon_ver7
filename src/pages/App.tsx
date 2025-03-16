@@ -1,56 +1,24 @@
 import { Search, Calendar, Briefcase, ShoppingBag, ChevronRight, Leaf} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import events from "../assets/events.json";
-import products from "../assets/products.json";
-import jobs from "../assets/jobs.json"
 
 function App() {
   const navigate = useNavigate()
     const navigatebusinessdashuboard = () => {
         navigate('/businessdashboard')
     }
+    const Auth = () => {
+        navigate('/auth')
+    }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Leaf className="h-8 w-8 text-green-600" />
-              <span className="text-2xl font-bold text-gray-800">農コミュ</span>
-            </div>
-            <div className="flex-1 max-w-2xl mx-8">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <input
-                  type="text"
-                  placeholder="キーワード、場所、作物で検索"
-                  className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                />
-              </div>
-            </div>
-            <nav className="hidden md:flex space-x-6">
-              <button
-                onClick={navigatebusinessdashuboard}
-                className="text-gray-600 hover:text-green-600"
-              >
-                法人の方はこちら
-              </button>
-              <button className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700">
-                新規登録
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="relative rounded-2xl overflow-hidden mb-12">
           <img
-            src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1920"
+            src="/img_8673.jpg"
             alt="農園の風景"
             className="w-full h-[400px] object-cover"
           />
@@ -81,14 +49,14 @@ function App() {
               <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {events.slice(0, 3).map((event, index) => (
-                <div key={index} className="flex items-start space-x-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex items-start space-x-4">
                   <div className="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">
-                    {event.date.month}/{event.date.day}
+                    3/1{i}
                   </div>
                   <div>
-                    <h3 className="font-medium">{event.title}</h3>
-                    <p className="text-sm text-gray-600">{event.place}</p>
+                    <h3 className="font-medium">春の収穫体験</h3>
+                    <p className="text-sm text-gray-600">滝沢市農業センター</p>
                   </div>
                 </div>
               ))}
@@ -105,11 +73,11 @@ function App() {
               <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {jobs.slice(0,3).map((job, index) => (
-                <div key={index} className="border-l-4 border-green-500 pl-4">
-                  <h3 className="font-medium">{job.title}</h3>
-                  <p className="text-sm text-gray-600">{job.salary}</p>
-                  <p className="text-sm text-gray-500">{job.place}</p>
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="border-l-4 border-green-500 pl-4">
+                  <h3 className="font-medium">いちご収穫スタッフ</h3>
+                  <p className="text-sm text-gray-600">時給1,200円〜</p>
+                  <p className="text-sm text-gray-500">滝沢いちご農園</p>
                 </div>
               ))}
             </div>
@@ -127,17 +95,17 @@ function App() {
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {products.slice(0, 3).map((product, index) => (
-                <div key={index} className="group cursor-pointer">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="group cursor-pointer">
                   <img
-                    src={product.picture.path}
-                    alt={product.picture.alt}
+                    src={`https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=300`}
+                    alt="農産物"
                     className="w-full h-24 object-cover rounded-lg mb-2"
                   />
                   <h3 className="text-sm font-medium group-hover:text-green-600">
-                    {product.name}
+                    採れたて野菜セット
                   </h3>
-                  <p className="text-sm text-gray-600">¥{product.price}</p>
+                  <p className="text-sm text-gray-600">¥2,980</p>
                 </div>
               ))}
             </div>
