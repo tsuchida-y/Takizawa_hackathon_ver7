@@ -7,13 +7,13 @@ function Shop() {
     return (
         <div className="min-h-screen bg-white p-6">
             <h1 className="text-2xl font-bold mb-4">ショップ</h1>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2">
                 {products.map((product, index) => (
-                    <div key={index} className="group cursor-pointer">
+                    <div key={index} className="group cursor-pointer flex flex-col items-start">
                         <img
                             src={product.picture.path}
                             alt={product.picture.alt}
-                            className="w-full h-24 object-cover rounded-lg mb-2"
+                            className="w-1/4 h-auto object-contain rounded-lg mb-1"
                         />
                         <h3 className="text-sm font-medium group-hover:text-green-600">
                             {product.name}
@@ -22,6 +22,12 @@ function Shop() {
                     </div>
                 ))}
             </div>
+            <button 
+              onClick={() => navigate('/home')} 
+              className="mt-6 px-4 py-2 bg-green-600 text-white rounded-lg"
+            >
+              ホームに戻る
+            </button>
         </div>
     );
 }

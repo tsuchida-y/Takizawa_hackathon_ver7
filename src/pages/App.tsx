@@ -72,7 +72,10 @@ function App() {
         {/* Category Sections */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Events */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div 
+            className="bg-white rounded-xl shadow-sm p-6 cursor-pointer"
+            onClick={() => navigate('/eventpage')}
+          >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <Calendar className="h-6 w-6 text-green-600" />
@@ -82,21 +85,19 @@ function App() {
             </div>
             <div className="space-y-4">
               {events.slice(0, 3).map((event, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">
-                    {event.date.month}/{event.date.day}
-                  </div>
-                  <div>
-                    <h3 className="font-medium">{event.title}</h3>
-                    <p className="text-sm text-gray-600">{event.place}</p>
-                  </div>
+                <div key={index} className="border-l-4 border-green-500 pl-4">
+                  <h3 className="font-medium">{event.title}</h3>
+                  <p className="text-sm text-gray-600">{event.place}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Jobs */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div 
+            className="bg-white rounded-xl shadow-sm p-6 cursor-pointer"
+            onClick={() => navigate('/jobpage')}
+          >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <Briefcase className="h-6 w-6 text-green-600" />
@@ -105,7 +106,7 @@ function App() {
               <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {jobs.slice(0,3).map((job, index) => (
+              {jobs.slice(0, 3).map((job, index) => (
                 <div key={index} className="border-l-4 border-green-500 pl-4">
                   <h3 className="font-medium">{job.title}</h3>
                   <p className="text-sm text-gray-600">{job.salary}</p>
@@ -116,15 +117,16 @@ function App() {
           </div>
 
           {/* Shop */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div 
+            className="bg-white rounded-xl shadow-sm p-6 cursor-pointer"
+            onClick={() => navigate('/shop')}
+          > 
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <ShoppingBag className="h-6 w-6 text-green-600" />
                 <h2 className="text-xl font-semibold">ショップ</h2>
               </div>
-              <ChevronRight className="h-5 w-5 text-gray-400 cursor-pointer"
-              onClick={() => navigate('/shop')}
-              />
+              <ChevronRight className="h-5 w-5 text-gray-400" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               {products.slice(0, 3).map((product, index) => (
