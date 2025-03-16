@@ -17,12 +17,6 @@ const BusinessDashboard = () => {
       <div className="flex h-screen bg-gray-50">
         {/* Sidebar */}
         <div className="w-64 bg-white shadow-sm">
-          <div className="p-4 border-b">
-            <div className="flex items-center space-x-2">
-              <Leaf className="h-6 w-6 text-green-600" />
-              <span className="text-xl font-bold text-gray-800">農コミュ</span>
-            </div>
-          </div>
           <nav className="p-4 space-y-1">
             <button
               onClick={() => setActiveTab('dashboard')}

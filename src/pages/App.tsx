@@ -12,41 +12,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Leaf className="h-8 w-8 text-green-600" />
-              <span className="text-2xl font-bold text-gray-800">農コミュ</span>
-            </div>
-            <div className="flex-1 max-w-2xl mx-8">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <input
-                  type="text"
-                  placeholder="キーワード、場所、作物で検索"
-                  className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                />
-              </div>
-            </div>
-            <nav className="hidden md:flex space-x-6">
-              <button
-                onClick={navigatebusinessdashuboard}
-                className="text-gray-600 hover:text-green-600"
-              >
-                法人の方はこちら
-              </button>
-              <button
-                onClick={Auth}                
-                className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700"
-              >
-                ログイン
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -142,26 +107,6 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* News Section */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-12">
-          <h2 className="text-xl font-semibold mb-4">地域の農業ニュース</h2>
-          <div className="space-y-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="flex items-start space-x-4 pb-4 border-b last:border-0">
-                <div className="text-sm text-gray-500">2024.3.{i}</div>
-                <div>
-                  <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mb-1">
-                    ニュース
-                  </span>
-                  <h3 className="font-medium hover:text-green-600 cursor-pointer">
-                    滝沢市、新規就農支援制度を拡充。年間最大150万円の助成金を創設
-                  </h3>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </main>
