@@ -10,8 +10,10 @@ const Auth = () => {
         <div className="flex absolute top-[50%] h-12 w-2/3 lg:w-1/3">
             <input type="password" placeholder="パスワード" className="bg-white rounded-xl shadow-sm border w-full pl-2"></input>
         </div>
+        <div className="flex absolute top-[60%] h-10 w-24 bg-gray-50 rounded-xl shadow-sm border justify-center items-center">
+            <button className="text-center h-8">ログイン</button>
+        </div>
     </div>
-  );
-};
+)}
 
 export default Auth;
